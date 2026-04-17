@@ -39,16 +39,17 @@
       <div class="nav-actions">
         <!-- Scroll to footer or specific contact section -->
         <a href="#contact" class="btn outline">Contact</a>
-        <a href="#contact" class="btn primary open-modal-btn">Enquiry Now</a>
+        <a href="#" class="btn outline login-btn">Login</a>
       </div>
     </div>
   </header>
 
   <section class="hero">
-    <div class="container hero-center">
+    <div class="container hero-split">
 
+      <!-- LEFT: Hero Text -->
       <div class="hero-text">
-        <div class="section-tag">
+        <div class="section-tag hero-tag">
           <span class="tag-dot"></span>
           <span class="tag-text">Trusted by 5000+ Sellers</span>
         </div>
@@ -62,14 +63,88 @@
         </p>
 
         <div class="hero-actions">
-          <button class="btn primary open-modal-btn">Enquiry Now</button>
+          <a href="#hero-form"><button class="btn primary">Get Free Demo</button></a>
           <a href="#features"><button class="btn outline">View Features</button></a>
         </div>
       </div>
 
-      <div class="hero-image">
-        <img src="assets/dashboard.png" alt="Shift WMS Dashboard" />
-        <div class="image-gradient"></div>
+      <!-- RIGHT: Inline Enquiry Form with Floating Labels -->
+      <div class="hero-form-card" id="hero-form">
+        <!-- <h3>Looking for a Warehousing &amp; Fulfillment Solution!</h3>
+        <p class="form-subtitle">Fill in your details and our team will contact you.</p> -->
+
+        <form class="enquiry-form">
+
+          <div class="form-row">
+            <div class="float-group">
+              <input type="text" id="hf-name" placeholder=" " required>
+              <label for="hf-name">Full Name *</label>
+            </div>
+            <div class="float-group">
+              <input type="tel" id="hf-phone" placeholder=" " required>
+              <label for="hf-phone">Contact No. *</label>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="float-group">
+              <input type="email" id="hf-email" placeholder=" " required>
+              <label for="hf-email">Email *</label>
+            </div>
+            <div class="float-group">
+              <input type="text" id="hf-business" placeholder=" " required>
+              <label for="hf-business">Business Name *</label>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="float-group">
+              <select id="hf-location" required>
+                <option value="" disabled selected></option>
+                <option value="Hyderabad">Hyderabad</option>
+                <option value="Bangalore">Bangalore</option>
+                <option value="Delhi">Delhi</option>
+                <option value="Mumbai">Mumbai</option>
+              </select>
+              <label for="hf-location">Fulfillment Location *</label>
+            </div>
+            <div class="float-group">
+              <select id="hf-orders" required>
+                <option value="" disabled selected></option>
+                <option value="0-500">0 – 500</option>
+                <option value="500-2000">500 – 2000</option>
+                <option value="2000-5000">2000 – 5000</option>
+                <option value="5000+">5000+</option>
+              </select>
+              <label for="hf-orders">Monthly Orders *</label>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="float-group">
+              <select id="hf-weight">
+                <option value="" disabled selected></option>
+                <option value="0-500g">0 – 500g</option>
+                <option value="500g-1kg">500g – 1kg</option>
+                <option value="1kg-5kg">1kg – 5kg</option>
+                <option value="5kg+">5kg+</option>
+              </select>
+              <label for="hf-weight">Product Weight (Optional)</label>
+            </div>
+            <div class="float-group">
+              <input type="url" id="hf-website" placeholder=" ">
+              <label for="hf-website">Website (Optional)</label>
+            </div>
+          </div>
+
+          <div class="float-group float-group--full">
+            <textarea id="hf-requirement" placeholder=" " rows="3"></textarea>
+            <label for="hf-requirement">Requirement (Optional)</label>
+          </div>
+
+          <button type="submit" class="btn primary submit-btn">Get Free Demo</button>
+
+        </form>
       </div>
 
     </div>
@@ -90,6 +165,11 @@
       </div>
     </div>
   </section>
+
+  <div class="hero-image">
+    <img src="assets/dashboard.png" alt="Shift WMS Dashboard" />
+    <div class="image-gradient"></div>
+  </div>
 
   <section class="features-bento" id="features">
     <div class="container">
@@ -358,76 +438,94 @@
   </section>
 
   <section class="how-it-works-road" id="how-it-works">
-    <div class="container">
 
-      <!-- CENTERED HEADING -->
-      <div class="how-header">
-        <div class="section-tag">
-          <span class="tag-dot"></span>
-          <span>How it works</span>
+    <!-- This div is sticky: stays on screen while the outer 500vh section scrolls past -->
+    <div class="how-sticky-wrap">
+
+      <div class="container">
+        <div class="how-header">
+          <div class="section-tag">
+            <span class="tag-dot"></span>
+            <span>How it works</span>
+          </div>
+          <h2>Built to simplify your fulfilment</h2>
+          <p>Smart tech, better efficiency, faster delivery</p>
         </div>
-        <h2>Built to simplify your fulfilment</h2>
-        <p>Smart tech, better efficiency, faster delivery</p>
       </div>
 
-      <div class="road-wrapper">
+      <div class="how-steps-snap">
 
-        <!-- LEFT + CENTER + RIGHT GRID -->
-        <div class="road">
-          <img src="assets/Road.svg" class="road-img" id="roadImg" />
-          <img src="assets/Shift delivery truck.svg" class="truck" id="truck" />
-        </div>
-
-        <div class="steps">
-
-          <div class="step">
-            <div class="step-image">
-              <img
-                src="https://cdn.prod.website-files.com/5ef15d131a03d2a52d8075ad/61851bf23974ba0e4a001f75_Frame%208711.png">
+        <div class="how-step-panel active" data-index="0">
+          <div class="container step-inner">
+            <div class="step-img-side">
+              <img src="https://cdn.prod.website-files.com/5ef15d131a03d2a52d8075ad/61851bf23974ba0e4a001f75_Frame%208711.png" alt="Inventory Management">
             </div>
-            <div class="step-content">
+            <div class="step-text-side">
+              <div class="step-num">01</div>
               <h3>Inventory Management</h3>
-              <p>Automatically track inventory levels and generate reports.</p>
+              <p>Automatically track inventory levels and generate reports with real-time visibility across all SKUs.</p>
             </div>
           </div>
-          <div class="steps-spacer"></div>
-          <div class="step">
-            <div class="step-image">
-              <img
-                src="https://cdn.prod.website-files.com/5ef15d131a03d2a52d8075ad/61851bf23974ba0356001f77_Frame%208711%20(1).png">
-            </div>
-            <div class="step-content">
-              <h3>Order Processing</h3>
-              <p>Manage incoming orders and dispatch efficiently.</p>
-            </div>
-          </div>
-          <div class="steps-spacer"></div>
-          <div class="step">
-            <div class="step-image">
-              <img
-                src="https://cdn.prod.website-files.com/5ef15d131a03d2a52d8075ad/61851bf23974babf95001f79_Frame%208711%20(2).png">
-            </div>
-            <div class="step-content">
-              <h3>Delivery Tracking</h3>
-              <p>Track shipments in real time with live updates.</p>
-            </div>
-          </div>
-          <div class="steps-spacer"></div>
-          <div class="step">
-            <div class="step-image">
-              <img
-                src="https://cdn.prod.website-files.com/5ef15d131a03d2a52d8075ad/61851bf23974babf95001f79_Frame%208711%20(2).png">
-            </div>
-            <div class="step-content">
-              <h3>Delivery Tracking</h3>
-              <p>Track shipments in real time with live updates.</p>
-            </div>
-          </div>
-
         </div>
+
+        <div class="how-step-panel" data-index="1">
+          <div class="container step-inner">
+            <div class="step-img-side">
+              <img src="https://cdn.prod.website-files.com/5ef15d131a03d2a52d8075ad/61851bf23974ba0356001f77_Frame%208711%20(1).png" alt="Order Processing">
+            </div>
+            <div class="step-text-side">
+              <div class="step-num">02</div>
+              <h3>Order Processing</h3>
+              <p>Manage incoming orders and dispatch efficiently with automated routing and priority queuing.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="how-step-panel" data-index="2">
+          <div class="container step-inner">
+            <div class="step-img-side">
+              <img src="https://cdn.prod.website-files.com/5ef15d131a03d2a52d8075ad/61851bf23974babf95001f79_Frame%208711%20(2).png" alt="Delivery Tracking">
+            </div>
+            <div class="step-text-side">
+              <div class="step-num">03</div>
+              <h3>Delivery Tracking</h3>
+              <p>Track shipments in real time with live courier updates and automated customer notifications.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="how-step-panel" data-index="3">
+          <div class="container step-inner">
+            <div class="step-img-side">
+              <img src="https://cdn.prod.website-files.com/5ef15d131a03d2a52d8075ad/61851bf23974babf95001f79_Frame%208711%20(2).png" alt="Analytics & Reports">
+            </div>
+            <div class="step-text-side">
+              <div class="step-num">04</div>
+              <h3>Analytics &amp; Reports</h3>
+              <p>Gain actionable insights with detailed performance reports on orders, inventory turns, and fulfilment speed.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="how-nav">
+        <button class="how-nav-btn" id="howPrevBtn" disabled aria-label="Previous step">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        </button>
+        <div class="how-dots">
+          <button class="how-dot active" data-target="0"></button>
+          <button class="how-dot" data-target="1"></button>
+          <button class="how-dot" data-target="2"></button>
+          <button class="how-dot" data-target="3"></button>
+        </div>
+        <button class="how-nav-btn" id="howNextBtn" aria-label="Next step">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </button>
       </div>
 
     </div>
+
   </section>
 
   <div class="portal-gradient" style="transform: rotate(180deg);"></div>
@@ -899,47 +997,56 @@
   </div>
 
   <script>
-    // How it works road
-    const roadsection = document.querySelector('.how-it-works-road');
-    const steps = document.querySelectorAll('.step');
-    const truck = document.querySelector('.truck');
+    // ─────────────────────────────────────────────
+    // HOW IT WORKS — sticky scroll + button controls
+    // ─────────────────────────────────────────────
+    (function () {
+      var howSection = document.querySelector('.how-it-works-road');
+      var panels     = document.querySelectorAll('.how-step-panel');
+      var dots       = document.querySelectorAll('.how-dot');
+      var prevBtn    = document.getElementById('howPrevBtn');
+      var nextBtn    = document.getElementById('howNextBtn');
+      var total      = panels.length;
+      var current    = 0;
 
-    const ROAD_SEGMENT = 550; // distance between steps (tune this)
+      // Show a specific step (CSS transition handles the fade-in)
+      function showStep(idx) {
+        idx = Math.max(0, Math.min(total - 1, idx));
+        current = idx;
+        panels.forEach(function (p, i) { p.classList.toggle('active', i === idx); });
+        dots.forEach(function (d, i)   { d.classList.toggle('active', i === idx); });
+        prevBtn.disabled = idx === 0;
+        nextBtn.disabled = idx === total - 1;
+      }
 
-    function updateTruck() {
-      const sectionTop = roadsection.offsetTop;
-      const sectionHeight = roadsection.offsetHeight;
-      const viewport = window.innerHeight;
-      const scrollY = window.scrollY;
+      // Button click: jump scroll silently to that step's range, animate card in place
+      function jumpToStep(idx) {
+        idx = Math.max(0, Math.min(total - 1, idx));
+        var sectionTop  = howSection.offsetTop;
+        var scrollRange = howSection.offsetHeight - window.innerHeight;
+        var target      = sectionTop + (idx / total) * scrollRange + 1;
+        window.scrollTo({ top: target, behavior: 'instant' });
+        showStep(idx);
+      }
 
-      // Define scroll range inside the section
-      const start = sectionTop + viewport * 0.1;
-      const end = sectionTop + sectionHeight - viewport * 1;
+      // Scroll listener: calculates which step matches current scroll position
+      function onScroll() {
+        var sectionTop  = howSection.offsetTop;
+        var scrollRange = howSection.offsetHeight - window.innerHeight;
+        var scrolled    = window.scrollY - sectionTop;
+        var progress    = Math.max(0, Math.min(0.9999, scrolled / scrollRange));
+        showStep(Math.floor(progress * total));
+      }
 
-      // Normalized progress
-      let progress = (scrollY - start) / (end - start);
-      progress = Math.min(Math.max(progress, 0), 1);
-
-      // Truck Y position
-      const maxY = ROAD_SEGMENT * (steps.length - 1);
-      const y = progress * maxY;
-
-      truck.style.transform = `translate(-50%, ${y}px)`;
-
-      // ----- ACTIVE STEP (visual only)
-      let activeIndex = 0;
-      steps.forEach((step, i) => {
-        const rect = step.getBoundingClientRect();
-        if (rect.top < viewport * 0.6) activeIndex = i;
+      prevBtn.addEventListener('click', function () { jumpToStep(current - 1); });
+      nextBtn.addEventListener('click', function () { jumpToStep(current + 1); });
+      dots.forEach(function (d, i) {
+        d.addEventListener('click', function () { jumpToStep(i); });
       });
 
-      steps.forEach((step, i) =>
-        step.classList.toggle('active', i === activeIndex)
-      );
-    }
-
-    window.addEventListener('scroll', updateTruck);
-    updateTruck();
+      window.addEventListener('scroll', onScroll, { passive: true });
+      showStep(0);
+    })();
 
 
 
@@ -1091,6 +1198,15 @@
         navCenter.classList.remove('active');
         document.body.classList.remove('no-scroll');
       });
+    });
+
+    // Floating labels — toggle .has-value on selects
+    document.querySelectorAll('.float-group select').forEach(function (sel) {
+      function syncLabel() {
+        sel.classList.toggle('has-value', sel.value !== '');
+      }
+      sel.addEventListener('change', syncLabel);
+      syncLabel(); // handle browser autofill on load
     });
   </script>
 

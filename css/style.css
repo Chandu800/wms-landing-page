@@ -290,6 +290,8 @@ body {
   position: relative;
   max-width: 1150px;
   width: 100%;
+  margin: 0 auto;
+  padding-top: 50px;
 }
 
 .hero-image img {
@@ -930,18 +932,14 @@ body {
 
   .stats-layout {
     position: sticky;
-    /* Restore sticky */
     top: 80px;
-    /* Slight adjust for header */
     height: 80vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    /* Text top, Box bottom */
     padding: 40px 20px;
     gap: 20px;
     overflow: hidden;
-    /* Prevent cards from flying out */
   }
 
   .stats-copy {
@@ -959,24 +957,19 @@ body {
     font-size: 14px;
     max-width: 100%;
   }
-
-  /* Box area at bottom */
   .stats-stage {
     display: flex;
     justify-content: center;
     align-items: flex-end;
     width: 100%;
     height: 300px;
-    /* Fixed height for animation area */
     position: relative;
     padding-bottom: 0;
   }
 
   .box-container {
     display: block;
-    /* Show box again */
     width: 200px;
-    /* Smaller box */
     height: 200px;
     transform: scale(0.8);
     transform-origin: bottom center;
@@ -987,26 +980,21 @@ body {
     bottom: 50px;
     left: 50%;
     width: 280px;
-    /* Smaller cards */
     padding: 20px;
     pointer-events: auto;
-
-    /* Default hidden state matching desktop logic */
     opacity: 0 !important;
     transform: translateX(-50%) translateY(0) scale(0.45) !important;
     filter: blur(0px) !important;
-    /* Performance */
   }
 
-  /* Active State overrides for mobile */
+
   .stat-card.active {
     opacity: 1 !important;
     transform: translateX(-50%) translateY(-150px) scale(1) !important;
-    /* Less vertical travel */
     z-index: 50;
   }
 
-  /* Exit State */
+
   .stat-card.exit-up {
     opacity: 0 !important;
     transform: translateX(-50%) translateY(-250px) scale(0.9) !important;
@@ -1028,7 +1016,7 @@ body {
   z-index: 30;
 }
 
-/* EXITING WHILE SCROLLING UP */
+
 .stat-card.exit-up {
   opacity: 0;
   transform:
@@ -1049,7 +1037,7 @@ body {
   filter: blur(0.3px);
 }
 
-/* Card Typography */
+
 .stat-card h3 {
   font-size: 36px;
   color: var(--primary);
@@ -1060,17 +1048,17 @@ body {
   color: var(--gray);
   font-weight: 500;
 }
-
-.how-it-works-road {
+.how-it-works-road h2,
+h3 {
+  color: #fff;
+}
+/* .how-it-works-road {
   padding: 100px 0;
   background-color: #0B0618;
   overflow: hidden;
 }
 
-.how-it-works-road h2,
-h3 {
-  color: #fff;
-}
+
 
 .how-it-works-road p {
   color: rgba(255, 255, 255, 0.75);
@@ -1100,7 +1088,6 @@ h3 {
 
   .road {
     display: none;
-    /* Hide road animation on mobile */
   }
 
   .steps {
@@ -1113,16 +1100,13 @@ h3 {
 
   .steps-spacer {
     display: none;
-    /* No spacer needed */
   }
 
   .step {
     display: flex;
     flex-direction: column;
     opacity: 1;
-    /* Always visible */
     background: rgba(255, 255, 255, 0.03);
-    /* Subtle card bg */
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 20px;
     padding: 30px;
@@ -1215,7 +1199,7 @@ h3 {
 .step-content h3 {
   font-size: 28px;
   margin-bottom: 12px;
-}
+} */
 
 /* SECTION */
 .industries-marquee {
@@ -2281,5 +2265,463 @@ h3 {
     padding: 24px;
     max-height: 85vh;
     overflow-y: auto;
+  }
+}
+
+/* =========================
+   LOGIN BUTTON (NAV)
+========================= */
+.login-btn {
+  padding: 10px 20px;
+  font-size: 14px;
+  text-decoration: none;
+  display: inline-block;
+}
+
+/* =========================
+   HERO SPLIT LAYOUT
+========================= */
+
+.hero {
+  padding-bottom: 80px;
+}
+
+.hero-split {
+  display: grid;
+  grid-template-columns: 1fr 0.9fr;
+  gap: 60px;
+  align-items: start;
+  text-align: left;
+}
+
+.hero-split .hero-text {
+  max-width: none;
+  text-align: left;
+}
+
+.hero-split .hero-text p {
+  margin: 20px 0 32px;
+  max-width: none;
+}
+
+.hero-tag {
+  margin: 0 0 18px !important;
+}
+
+/* Inline form card */
+.hero-form-card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 32px;
+  box-shadow: 0 20px 60px rgba(144, 63, 238, 0.12), 0 4px 20px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(144, 63, 238, 0.15);
+  position: sticky;
+  top: 100px;
+}
+
+.hero-form-card h3 {
+  font-size: 17px;
+  margin-bottom: 22px;
+  color: var(--dark);
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+@media (max-width: 960px) {
+  .hero-split {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    text-align: center;
+  }
+
+  .hero-split .hero-text,
+  .hero-split .hero-text p {
+    text-align: center;
+  }
+
+  .hero-tag {
+    margin: 0 auto 18px !important;
+  }
+
+  .hero-form-card {
+    position: static;
+  }
+}
+
+/* =========================
+   HOW IT WORKS — STICKY SCROLL CARDS
+========================= */
+
+/*
+ * Outer section is 500vh tall.
+ * The inner .how-sticky-wrap is position:sticky so it pins to the top
+ * and stays visible while the browser scrolls through all 500vh.
+ * Each 100vh of scroll = one step revealed.
+ */
+.how-it-works-road {
+  height: 500vh;
+  background-color: #0B0618;
+  position: relative;
+  overflow: visible;
+  padding: 0;
+}
+
+/* Pinned inner container — always fills the viewport */
+.how-sticky-wrap {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.how-header {
+  padding: 60px 0 24px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+/* Step panels fill the remaining vertical space between header and nav */
+.how-steps-snap {
+  position: relative;
+  flex: 1;
+  overflow: hidden;
+}
+
+.how-step-panel {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+}
+
+.how-step-panel.active {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: all;
+  z-index: 1;
+}
+
+/* Two-column layout inside each panel */
+.step-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+  width: 100%;
+}
+
+.step-img-side img {
+  width: 100%;
+  max-width: 420px;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+}
+
+.step-text-side {
+  color: #fff;
+}
+
+.step-num {
+  font-size: 64px;
+  font-weight: 800;
+  color: rgba(144, 63, 238, 0.25);
+  line-height: 1;
+  margin-bottom: 12px;
+  font-family: var(--font-heading);
+  letter-spacing: -3px;
+}
+
+.step-text-side h3 {
+  font-size: 32px;
+  color: #fff;
+  margin-bottom: 16px;
+}
+
+.step-text-side p {
+  font-size: 17px;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.7;
+  max-width: 420px;
+}
+
+/* Navigation bar */
+.how-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  flex-shrink: 0;
+  padding: 28px 0 52px;
+}
+
+.how-nav-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.how-nav-btn:hover:not(:disabled) {
+  background: rgba(144, 63, 238, 0.35);
+  border-color: var(--primary);
+}
+
+.how-nav-btn:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.how-dots {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.how-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.25);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.3s ease;
+}
+
+.how-dot.active {
+  background: var(--primary);
+  width: 26px;
+  border-radius: 4px;
+}
+
+@media (max-width: 900px) {
+  /* Remove sticky scroll on mobile — revert to simple show/hide */
+  .how-it-works-road {
+    height: auto;
+    padding: 60px 0 40px;
+  }
+
+  .how-sticky-wrap {
+    position: static;
+    height: auto;
+    overflow: visible;
+  }
+
+  .how-header {
+    padding: 0 0 32px;
+  }
+
+  .how-steps-snap {
+    height: auto;
+    min-height: 420px;
+  }
+
+  .how-step-panel {
+    position: relative;
+    display: none;
+    opacity: 1;
+    transform: none;
+    transition: none;
+    pointer-events: all;
+  }
+
+  .how-step-panel.active {
+    display: flex;
+  }
+
+  .step-inner {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    text-align: center;
+    padding: 20px 0;
+  }
+
+  .step-img-side {
+    display: flex;
+    justify-content: center;
+  }
+
+  .step-img-side img {
+    max-width: 260px;
+  }
+
+  .step-text-side p {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .step-num {
+    font-size: 44px;
+  }
+
+  .step-text-side h3 {
+    font-size: 24px;
+  }
+}
+
+/* =========================
+   HERO FORM — TITLE & SUBTITLE
+========================= */
+
+.hero-form-card h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--dark);
+  line-height: 1.4;
+  margin-bottom: 6px;
+}
+
+.form-subtitle {
+  font-size: 13px;
+  color: var(--gray);
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+/* Tighten row gap inside hero form */
+.hero-form-card .enquiry-form {
+  gap: 12px;
+}
+
+.hero-form-card .form-row {
+  gap: 10px;
+}
+
+/* =========================
+   FLOATING LABEL INPUTS
+========================= */
+
+.float-group {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+}
+
+.float-group--full {
+  flex: none;
+  width: 100%;
+}
+
+/* Base field styles */
+.float-group input,
+.float-group select,
+.float-group textarea {
+  width: 100%;
+  padding: 20px 14px 6px;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #334155;
+  outline: none;
+  background: #fff;
+  font-family: 'Inter', sans-serif;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  display: block;
+}
+
+.float-group textarea {
+  resize: vertical;
+  min-height: 78px;
+  line-height: 1.5;
+}
+
+/* Custom select arrow */
+.float-group select {
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 36px;
+  cursor: pointer;
+}
+
+/* Focus ring */
+.float-group input:focus,
+.float-group select:focus,
+.float-group textarea:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(144, 63, 238, 0.1);
+}
+
+/* --- The floating label --- */
+.float-group label {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 13px;
+  color: #94a3b8;
+  pointer-events: none;
+  transition: top 0.18s ease, font-size 0.18s ease, color 0.18s ease, transform 0.18s ease;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: calc(100% - 28px);
+  line-height: 1;
+  background: transparent;
+}
+
+/* Textarea label anchors to top, not middle */
+.float-group textarea ~ label {
+  top: 18px;
+  transform: none;
+}
+
+/* --- Floated state (input / textarea): focus or has value --- */
+.float-group input:focus + label,
+.float-group input:not(:placeholder-shown) + label {
+  top: -4px;
+  transform: none;
+  font-size: 10px;
+  color: var(--primary);
+  padding: 0 4px;
+  background-color: #fff;
+}
+
+.float-group textarea:focus + label,
+.float-group textarea:not(:placeholder-shown) + label {
+  top: -4px;
+  font-size: 10px;
+  color: var(--primary);
+  padding: 0 4px;
+  background-color: #fff;
+}
+
+/* --- Floated state (select): focus or JS-added .has-value class --- */
+.float-group select:focus + label,
+.float-group select.has-value + label {
+  top: -4px;
+  transform: none;
+  font-size: 10px;
+  padding: 0 4px;
+  color: var(--primary);
+  background-color: #fff;
+}
+
+/* Mobile: stack form rows */
+@media (max-width: 600px) {
+  .hero-form-card .form-row {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .float-group {
+    flex: none;
+    width: 100%;
   }
 }
